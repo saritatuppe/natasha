@@ -1,0 +1,246 @@
+<!doctype html>
+
+<head>
+    <style>
+        /* CSS comes here */
+        body {
+            font-family: arial;
+        }
+
+        button {
+
+            border: none;
+            background-color: transparent;
+        }
+
+        #output {
+            background-color: #F9F9F9;
+            padding: 10px;
+            width: 100%;
+            margin-top: 20px;
+            line-height: 30px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <title>Natasha AI Buddy</title>
+
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Simple voicebot using JavaScript named as Natasha, she can help you to search something on google ,play music or video on youtube,open instagram profile etc .... She is learning too many things yet.......">
+    <meta name="keywords" content="Natasha,AIBuddy, #Giverespecttakerespect....">
+    <meta name="author" content="Pratik Joshi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"
+        href="https://cdn-icons.flaticon.com/png/512/1698/premium/1698535.png?token=exp=1637695164~hmac=f64d5293550119e6fd3d0d7c0fe8cf3e">
+</head>
+
+<body onload="">
+
+    <h2>Hii I am Natasha Click Me to Speak....</h2>
+    <p><button type="button" onclick="runSpeechRecognition()"><img src="natasha2.png"></button> &nbsp;
+        <!-- <span id="action"></span> -->
+    </p>
+    <form action="" id="addCommand">
+        <label for="fname">Command:</label><br>
+        <input type="text" id="command" placeholder="command goes here"><br>
+        <label for="lname">URL which you want to open:</label><br>
+        <input type="text" id="url" placeholder="Url want to open"><br><br>
+        <input type="submit" value="Enter" id="formSubmit">
+    </form>
+    <script>
+        // commands.push({ command: "string", result_url: "result.url" })
+        document.getElementById("addCommand").style.display = "none";
+        speechSynthesis.speak(new SpeechSynthesisUtterance("Hii I am Natasha , Natasha commands please is my initial command, click me to give my first command."));
+        let commands = [
+
+            {
+                command: "open facebook",
+                result_url: "https://www.facebook.com/",
+            },
+            {
+                command: "open twitter",
+                result_url: "https://twitter.com/?lang=en",
+            },
+            {
+                command: "open whatsapp",
+                result_url: "https://web.whatsapp.com/",
+            },
+            {
+                command: "i want to read c",
+                result_url: "https://www.tutorialspoint.com/cprogramming/index.htm",
+            },
+            {
+                command: "i want to watch news in marathi",
+                result_url: "https://www.youtube.com/watch?v=Rs3GfkHRwXA",
+            },
+            {
+                command: "i want to watch news in hindi",
+                result_url: "https://www.youtube.com/watch?v=onpn1FS8cKw",
+            },
+            {
+                command: "i want to watch news in english",
+                result_url: "https://www.youtube.com/watch?v=WB-y7_ymPJ4",
+            },
+            {
+                command: "i want to read newspaper in marathi",
+                result_url: "http://epaper.lokmat.com/",
+            },
+            {
+                command: "i want to read newspaper in english",
+                result_url: "https://timesofindia.indiatimes.com/",
+            },
+            {
+                command: "i want to read newspaper in hindi",
+                result_url: "https://www.bhaskar.com/",
+            },
+            {
+                command: "i want to read computer fundamentals",
+                result_url: "https://www.tutorialspoint.com/computer_fundamentals/computer_fundamentals_tutorial.pdf",
+            },
+            {
+                command: "i want to read digital electronics",
+                result_url: "https://www.javatpoint.com/digital-electronics",
+            },
+            {
+                command: "i want to read c programing",
+                result_url: "https://www.tutorialspoint.com/cprogramming/index.htm",
+            },
+            {
+                command: "i want to read microprocessor",
+                result_url: "https://www.tutorialspoint.com/microprocessor/microprocessor_overview.htm",
+            },
+            {
+                command: "i want to read datastructure",
+                result_url: "https://www.tutorialspoint.com/data_structures_algorithms/index.htm",
+            },
+            {
+                command: "i want to read operating system",
+                result_url: "https://www.tutorialspoint.com/operating_system/index.htm",
+            },
+            {
+                command: "i want to read unix",
+                result_url: "https://www.tutorialspoint.com/unix/index.htm",
+            },
+            {
+                command: "i want to read pc maintanance",
+                result_url: "https://doctorfeda.wordpress.com/students/pc-maintenance/lecture-notes/",
+            },
+            {
+                command: "i want to read dbms",
+                result_url: "https://www.javatpoint.com/dbms-tutorial",
+            },
+            {
+                command: "i want to read software engineering",
+                result_url: "https://www.javatpoint.com/software-engineering-tutorial",
+            },
+            {
+                command: "i want to read fedora",
+                result_url: "https://www.javatpoint.com/fedora-operating-system",
+            },
+            {
+                command: "i want to read networking",
+                result_url: "https://www.tutorialspoint.com/data_communication_computer_network/index.htm",
+            },
+            {
+                command: "i want to read web fundamentals",
+                result_url: "https://www.tutorialspoint.com/web_developers_guide/web_basic_concepts.htm",
+            },
+            {
+                command: "web fundamentals",
+                result_url: "https://www.tutorialspoint.com/web_developers_guide/web_basic_concepts.htm",
+            },
+            {
+                command: "i want to plan my trip",
+                result_url: "https://www.makemytrip.com/",
+            },
+            {
+                command: "book my bus",
+                result_url: "https://m.redbus.in/",
+            }
+
+        ];
+        // alert(commands.length);
+
+        // responsiveVoice.speak("Hi I am Natasha Click me to continue......");
+        function runSpeechRecognition() {
+
+            var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+            var recognition = new SpeechRecognition();
+
+
+            // This runs when the speech recognition service starts
+            recognition.onstart = function () {
+                // action.innerHTML = "<small>listening, please speak...</small>";
+            };
+
+            recognition.onspeechend = function () {
+                // action.innerHTML = "<small>stopped listening, hope you are done...</small>";
+                recognition.stop();
+                // runSpeechRecognition();
+            }
+
+
+            // This runs when the speech recognition service returns result
+            recognition.onresult = function (event) {
+
+                var transcript = event.results[0][0].transcript;
+
+                transcript = transcript.toLowerCase();
+                //natasha Will Start If you call her
+                // console.log(transcript);
+                if (transcript.includes("natasha")) {
+                    transcript = transcript.replace("natasha", "");
+                    transcript = transcript.replace("?", "");
+                    if (transcript.includes("what is")) {
+                        var x = transcript.replace("what is", "");
+                        window.open('https://www.google.com/search?q=' + x, '_blank');
+
+                    } else if (transcript.includes("play")) {
+
+                        var x = transcript.replace("play", "");
+                        window.open('https://www.youtube.com/results?search_query=' + x, '_blank');
+                    }
+                    else if (transcript.includes("add command")) {
+                        document.getElementById("addCommand").style.display = "block";
+                        // window.open("#addcommand");
+                    }
+                    else if (transcript.includes("commands please")) {
+                        for (let i = 0; i < commands.length; i++) {
+                            document.write("<h3 style='margin:0; padding:0'> natasha " + commands[i].command + "</h3><br>");
+                        }
+                    } else {
+                        for (let i = 0; i < commands.length; i++) {
+                            if (transcript.includes(commands[i].command)) {
+                                window.open(commands[i].result_url, '_blank');
+                            }
+                        }
+                    }
+
+                }
+            };
+
+            // start recognition
+
+            recognition.start();
+        }
+
+    </script>
+    <script>
+        document.getElementById("formSubmit").addEventListener('click', add);
+        function add() {
+            let command = document.getElementById("command").value;
+            let url = document.getElementById("url").value;
+            commands.push({ command: command, result_url: url });
+            document.getElementById("addCommand").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
