@@ -33,9 +33,9 @@
 
     <meta charset="UTF-8">
     <meta name="description"
-        content="Simple voicebot using JavaScript named as Natasha, she can help you to search something on google ,play music or video on youtube,open instagram profile etc .... She is learning too many things yet.......">
-    <meta name="keywords" content="Natasha,AIBuddy, #Giverespecttakerespect....">
-    <meta name="author" content="Pratik Joshi">
+        content="Simple voicebot using JavaScript named as Sarita, she can help you to search something on google ,play music or video on youtube,open instagram profile etc .... She is learning too many things yet.......">
+    <meta name="keywords" content="Sarita,AIBuddy, #Giverespecttakerespect....">
+    <meta name="author" content="Sarita Tuppe">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon"
         href="https://cdn-icons.flaticon.com/png/512/1698/premium/1698535.png?token=exp=1637695164~hmac=f64d5293550119e6fd3d0d7c0fe8cf3e">
@@ -43,7 +43,7 @@
 
 <body onload="">
 
-    <h2>Hii I am Natasha Click Me to Speak....</h2>
+    <h2>Hii I am Sarita Click Me to Speak....</h2>
     <p><button type="button" onclick="runSpeechRecognition()"><img src="natasha2.png"></button> &nbsp;
         <!-- <span id="action"></span> -->
     </p>
@@ -57,7 +57,7 @@
     <script>
         // commands.push({ command: "string", result_url: "result.url" })
         document.getElementById("addCommand").style.display = "none";
-        speechSynthesis.speak(new SpeechSynthesisUtterance("Hii I am Natasha , Natasha commands please is my initial command, click me to give my first command."));
+        speechSynthesis.speak(new SpeechSynthesisUtterance("Hii I am Sarita , Sarita commands please is my initial command, click me to give my first command."));
         let commands = [
 
             {
@@ -72,10 +72,7 @@
                 command: "open whatsapp",
                 result_url: "https://web.whatsapp.com/",
             },
-            {
-                command: "i want to read c",
-                result_url: "https://www.tutorialspoint.com/cprogramming/index.htm",
-            },
+           
             {
                 command: "i want to watch news in marathi",
                 result_url: "https://www.youtube.com/watch?v=Rs3GfkHRwXA",
@@ -100,62 +97,7 @@
                 command: "i want to read newspaper in hindi",
                 result_url: "https://www.bhaskar.com/",
             },
-            {
-                command: "i want to read computer fundamentals",
-                result_url: "https://www.tutorialspoint.com/computer_fundamentals/computer_fundamentals_tutorial.pdf",
-            },
-            {
-                command: "i want to read digital electronics",
-                result_url: "https://www.javatpoint.com/digital-electronics",
-            },
-            {
-                command: "i want to read c programing",
-                result_url: "https://www.tutorialspoint.com/cprogramming/index.htm",
-            },
-            {
-                command: "i want to read microprocessor",
-                result_url: "https://www.tutorialspoint.com/microprocessor/microprocessor_overview.htm",
-            },
-            {
-                command: "i want to read datastructure",
-                result_url: "https://www.tutorialspoint.com/data_structures_algorithms/index.htm",
-            },
-            {
-                command: "i want to read operating system",
-                result_url: "https://www.tutorialspoint.com/operating_system/index.htm",
-            },
-            {
-                command: "i want to read unix",
-                result_url: "https://www.tutorialspoint.com/unix/index.htm",
-            },
-            {
-                command: "i want to read pc maintanance",
-                result_url: "https://doctorfeda.wordpress.com/students/pc-maintenance/lecture-notes/",
-            },
-            {
-                command: "i want to read dbms",
-                result_url: "https://www.javatpoint.com/dbms-tutorial",
-            },
-            {
-                command: "i want to read software engineering",
-                result_url: "https://www.javatpoint.com/software-engineering-tutorial",
-            },
-            {
-                command: "i want to read fedora",
-                result_url: "https://www.javatpoint.com/fedora-operating-system",
-            },
-            {
-                command: "i want to read networking",
-                result_url: "https://www.tutorialspoint.com/data_communication_computer_network/index.htm",
-            },
-            {
-                command: "i want to read web fundamentals",
-                result_url: "https://www.tutorialspoint.com/web_developers_guide/web_basic_concepts.htm",
-            },
-            {
-                command: "web fundamentals",
-                result_url: "https://www.tutorialspoint.com/web_developers_guide/web_basic_concepts.htm",
-            },
+    
             {
                 command: "i want to plan my trip",
                 result_url: "https://www.makemytrip.com/",
@@ -168,7 +110,7 @@
         ];
         // alert(commands.length);
 
-        // responsiveVoice.speak("Hi I am Natasha Click me to continue......");
+        // responsiveVoice.speak("Hi I am Sarita Click me to continue......");
         function runSpeechRecognition() {
 
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -195,8 +137,8 @@
                 transcript = transcript.toLowerCase();
                 //natasha Will Start If you call her
                 // console.log(transcript);
-                if (transcript.includes("natasha")) {
-                    transcript = transcript.replace("natasha", "");
+                if (transcript.includes("Sarita")) {
+                    transcript = transcript.replace("Sarita", "");
                     transcript = transcript.replace("?", "");
                     if (transcript.includes("what is")) {
                         var x = transcript.replace("what is", "");
