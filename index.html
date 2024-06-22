@@ -33,8 +33,8 @@
 
     <meta charset="UTF-8">
     <meta name="description"
-        content="Simple voicebot using JavaScript named as Sarita, she can help you to search something on google ,play music or video on youtube,open instagram profile etc .... She is learning too many things yet.......">
-    <meta name="keywords" content="Sarita,AIBuddy, #Giverespecttakerespect....">
+        content="Simple voicebot using JavaScript named as Natasha, she can help you to search something on google ,play music or video on youtube,open instagram profile etc .... She is learning too many things yet.......">
+    <meta name="keywords" content="Natasha,AIBuddy, #Giverespecttakerespect....">
     <meta name="author" content="Sarita Tuppe">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon"
@@ -43,7 +43,7 @@
 
 <body onload="">
 
-    <h2>Hii I am Sarita Click Me to Speak....</h2>
+    <h2>Hii I am Natasha Click Me to Speak....</h2>
     <p><button type="button" onclick="runSpeechRecognition()"><img src="natasha2.png"></button> &nbsp;
         <!-- <span id="action"></span> -->
     </p>
@@ -57,7 +57,7 @@
     <script>
         // commands.push({ command: "string", result_url: "result.url" })
         document.getElementById("addCommand").style.display = "none";
-        speechSynthesis.speak(new SpeechSynthesisUtterance("Hii I am Sarita , Sarita commands please is my initial command, click me to give my first command."));
+        speechSynthesis.speak(new SpeechSynthesisUtterance("Hii I am Natasha , Natasha commands please is my initial command, click me to give my first command."));
         let commands = [
 
             {
@@ -110,7 +110,7 @@
         ];
         // alert(commands.length);
 
-        // responsiveVoice.speak("Hi I am Sarita Click me to continue......");
+        // responsiveVoice.speak("Hi I am Natasha Click me to continue......");
         function runSpeechRecognition() {
 
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -137,8 +137,8 @@
                 transcript = transcript.toLowerCase();
                 //natasha Will Start If you call her
                 // console.log(transcript);
-                if (transcript.includes("Sarita")) {
-                    transcript = transcript.replace("Sarita", "");
+                if (transcript.includes("Natasha")) {
+                    transcript = transcript.replace("Natasha", "");
                     transcript = transcript.replace("?", "");
                     if (transcript.includes("what is")) {
                         var x = transcript.replace("what is", "");
